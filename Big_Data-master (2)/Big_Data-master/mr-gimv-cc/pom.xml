@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>me.tingri</groupId>
+        <artifactId>big_data</artifactId>
+        <version>0.2</version>
+    </parent>
+
+    <groupId>me.tingri</groupId>
+    <artifactId>mr-gimv-cc</artifactId>
+    <version>1.2</version>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>me.tingri.graphs.cc.ConnectedComponents</mainClass>
+                            </manifest>
+                        </archive>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-core</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+        <!-- For unit testing -->
+        <dependency>
+            <groupId>org.apache.mrunit</groupId>
+            <artifactId>mrunit</artifactId>
+            <version>1.1.0</version>
+            <scope>test</scope>
+            <classifier>hadoop2</classifier>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>cdh.repo</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+            <name>Cloudera Repositories</name>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>http://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+</project>

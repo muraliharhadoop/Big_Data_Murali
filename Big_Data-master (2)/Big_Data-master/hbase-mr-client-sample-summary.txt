@@ -1,0 +1,56 @@
+the same 4 groups  are identified as in WQUPC below
+of size 3 - (N9,N4,N20), 2-(N10,N11), 5-(N5, N3, N6, N1, N2), 2-(N7, N8)
+
+
+hbase(main):001:0>
+..........
+
+ROW  COLUMN+CELL
+ 1 column=component:1, timestamp=1462310119608, value=1 --- N9, N9
+ 10 column=component:10, timestamp=1462310119608, value=10 --- N11, N11
+ 11 column=component:11, timestamp=1462310119608, value=10 --- N10, N11
+ 12 column=component:12, timestamp=1462310119608, value=4 --- N1, N6
+ 2 column=component:2, timestamp=1462310119608, value=2 --- N8, N8
+ 3 column=component:3, timestamp=1462310119608, value=2 --- N7, N8
+ 4 column=component:4, timestamp=1462310119608, value=4 --- N6, N6
+ 5 column=component:5, timestamp=1462310119608, value=4 --- N5, N6
+ 6 column=component:6, timestamp=1462310119608, value=1 --- N4, N9
+ 7 column=component:7, timestamp=1462310119608, value=4 --- N3, N6
+ 8 column=component:8, timestamp=1462310119608, value=1 --- N20, N9
+ 9 column=component:9, timestamp=1462310119608, value=4 --- N2, N6
+12 row(s) in 0.3950 seconds
+
+
+select * from nodes
+OK
+1	N9
+2	N8
+3	N7
+4	N6
+5	N5
+6	N4
+7	N3
+8	N20
+9	N2
+10	N11
+11	N10
+12	N1
+
+--------------------------------------------------------
+
+WQUPC results(Min. is not used here) the same 4 groups  are identified as below
+of size 3 - (N9,N4,N20), 2-(N10,N11), 5-(N5, N3, N6, N1, N2), 2-(N7, N8)
+-- N9	N4
+-- N8	N8
+-- N7	N8
+-- N6	N5
+-- N5	N5
+-- N4	N4
+-- N3	N5
+-- N20	N4
+-- N2	N5
+-- N11	N11
+-- N10	N11
+-- N1	N5
+
+the same nodes are part of the components in HBASE components table as in WQUPC results
